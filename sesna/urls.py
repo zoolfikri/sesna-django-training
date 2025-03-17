@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import PingView, BooksView
+from .views import PingView, BooksView, TokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('get-token', TokenObtainPairView.as_view(), name='get-token'),
     path('sesna/ping', PingView.as_view(), name='ping'),
-    path('sesna/books', BooksView.as_view(), name='ping'),
+    path('sesna/books', BooksView.as_view(), name='books'),
 ]
